@@ -133,3 +133,16 @@ table {
   line-height: 1.5;
   font-weight: 400;
 }
+
+html,
+#root,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+main {
+  padding-top: 10px;
+  height: calc(100% - 10px);
+}
