@@ -1,31 +1,86 @@
 @import url("../variables.css");
 
-.wrapper {
-  max-width: 760px;
-  margin: 20px auto 0 auto;
-  max-height: 600px;
-  overflow: auto;
-  border: 1px solid var(--midnight-blue);
-  color: var(--midnight-blue);
-  border-radius: 4px;
+.activeColumn::after {
+  content: "•";
+  margin-left: 5px;
+  font-size: 20px;
+  position: absolute;
+  transform: translate(-2px, -2px);
 }
 
-.wrapper .tableHeader {
-  background-color: var(--baby-blue);
-  box-sizing: border-box;
-  font-weight: bold;
+.default + div p {
+  margin: auto;
+}
+
+.default + div {
+  transition: all 0.25s;
+  background-color: rgba(0, 0, 0, 0.3);
+  grid-column: 1/-1;
   width: 100%;
-  border-bottom: 1px solid;
-  position: sticky;
-  top: 47px;
-  padding: 10px;
-  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.default span:first-child {
+  color: var(--midnight-blue);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.defaultCaret {
+  transform: translate(0, 2px);
+}
+
+.hideRow {
+  max-height: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.imageWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, calc(50% - 10px));
+  margin: 10px;
+  grid-column-gap: 20px;
+}
+
+.imageWrapper > div {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--midnight-blue);
+}
+
+.rotateCaret {
+  transform: rotate(90deg) translate(10px, 12px);
+}
+
+.showAll {
+  background-color: var(--white);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--midnight-blue);
+  width: 15px;
+}
+
+.showAll span {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 7px;
+}
+
+.showRow {
+  max-height: 500px !important;
+  margin: 5px 0;
 }
 
 .tableRow,
 .default {
   display: grid;
-  grid-template-columns: 20px 25px 195px 70px 85px 220px 55px auto;
+  grid-template-columns: 30px 25px 180px 70px 85px 210px 60px auto;
   font: normal 14px sans-serif;
 }
 
@@ -52,72 +107,28 @@
   padding: 5px 10px;
 }
 
-.hideRow {
-  max-height: 0;
-}
-
-.showRow {
-  max-height: 500px !important;
-  margin: 5px 0;
-}
-
-.default + div p {
-  margin: auto;
-}
-
-.default + div {
-  transition: all 0.25s;
-  background-color: rgba(0, 0, 0, 0.3);
-  grid-column: 1/-1;
-  width: 100%;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.default span:first-child {
-  color: var(--midnight-blue);
-  transition: transform 0.25s;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.rotateCaret {
-  transform: rotate(90deg) translate(6px, 7px);
-}
-
-.defaultCaret {
-  transform: translate(0, 2px);
-}
-
-.imageWrapper {
-  display: grid;
-  grid-template-columns: repeat(2, calc(50% - 10px));
-  margin: 10px;
-  grid-column-gap: 20px;
-}
-
-.imageWrapper > div {
-  border-radius: 4px;
-  overflow: hidden;
+.wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  max-height: 600px;
+  overflow: auto;
   border: 1px solid var(--midnight-blue);
+  color: var(--midnight-blue);
+  border-radius: 4px;
 }
 
-img {
+.wrapper .tableHeader {
+  background-color: var(--baby-blue);
+  box-sizing: border-box;
+  font-weight: bold;
   width: 100%;
-  display: block;
+  border-bottom: 1px solid;
+  position: sticky;
+  top: 47px;
+  padding: 10px;
+  z-index: 1;
 }
 
-.loader {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: var(--white);
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 100%;
-  display: flex;
-}
-
-.loader span {
-  margin: auto;
+.wrapper .tableHeader span {
+  cursor: pointer;
 }
